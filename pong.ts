@@ -110,7 +110,7 @@ function pong() {
 		// When the ToggleBreakout event occurs we capture the current value of the button's 'value' attribute. 
 		// (listened to on any click event because we want the State to be always privvy to the most up to date HTML breakOutButton value - same goes for the difficultySliderStream)
 		breakoutButtonStream = mouseObservable(document, <Event>'click', () =>
-			new ToggleBreakout((document.getElementById("breakOutButton") as HTMLInputElement).value == 'true'))
+			new ToggleBreakout((document.getElementById("breakOutButton") as HTMLInputElement).className == 'active'))
 
 
 	const createBar = (
