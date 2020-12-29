@@ -271,14 +271,12 @@ function pong() {
 					calculateBallBounce(s.ball, isballBounceOnBorder, isballBounceOnLeftBar || isballBounceOnRightBar, paddleAimVerticalError)
 			}
 	}
-
 	const tick = (s: State, elapsed: number) =>
 		objInteractionHandling(<State>{
 			...s,
 			time: elapsed,
 			ball: moveObject(s.ball)
 		})
-
 
 	const thrower = (s:string) => { throw Error(s); }
 
