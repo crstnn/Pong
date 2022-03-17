@@ -1,0 +1,63 @@
+  <!--Author: crstnn github: https://github.com/crstnn-->
+  <html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>C.C's Pong Game</title>
+        <head>
+            <style>
+            .GameOverText {font-size: 30px; font-family:serif; fill: #B11B1B; }
+            .ScoreText {font-size: 50px; font-family: serif; fill: black; }
+            .navUText{color: black ; font-family:"Courier New"}
+            .navUTextNeg{color: white; font-family:"Courier New"}
+                .nav {position: absolute; right: 35px; top: 50px;}
+                .active{background:#647c91; color:#FFF }
+                .arrowkey {width:20px; text-align:center; border-radius:4px; background-color:lightgray;}
+                .highlight {background-color:rgb(220, 242, 255);}			
+                @import url(style.css);
+                p.highlight {color: red;}
+                svg {background-color: rgb(41, 41, 36);}
+            </style>
+            <script src="./dist/pong.js"></script>
+        </head>
+        <body>
+        <div style="width:600px; margin:0 auto;">
+            <h1 class="navUText" >Pong</h1>
+            <p class="navUText"  >Welcome to C.C's Pong game. 
+            Player 1 is on the left-hand side (you). On the right is the computer AI (note: as you turn up the difficulty the computer drinks more coffee!). For extra fun click
+             Breakout Mode, be prepared for loud noises. Bricks vanish after 4 hits. Good Luck!</p>
+            <div class="slidercontainer" style="height: 30px;">
+            
+      <input style="float: right;" type="range" min="1" max="100" value="25" class="slider" id="difficultyRange" >
+      <b class="navUText" style="float: right; top:50%; ">Difficulty:</b>
+      <button style="float: left; margin:2px;" id="restartGameButton"  >Restart Game</button>
+    
+      <!-- below is a special button that remains always depressed on a click / was much nicer looking than tickbox -->
+      <button type='button' id="breakOutButton" onClick="jQuery(this).toggleClass('active');" value='false' style="margin:2px;">Breakout Mode!</button>
+    </div>
+        <svg id="svg_background" width="600" height="600" style="background-color:rgb(204, 204, 204);">
+        <text class="ScoreText" id="playerScore1" x="100" y="75" style="fill: rgb(63, 63, 63);">0</text>
+        <text class="ScoreText" id="playerScore2" x="480" y="75" style="fill: rgb(63, 63, 63);">0</text>
+        <circle id="ball" cx="300" cy="300" r="7" stroke="black" stroke-width="1" fill="yellow" />
+        
+        <rect id="playerBar1" width="6" height="75" x="75" y="262.5" 
+                 style="fill:blue ; stroke-width:1.5; stroke:rgb(43, 222, 221);">
+        </rect>
+        <rect id="playerBar2" x="525" y="262.5" width="6" height="75"
+                 style="fill:rgb(8, 95, 0); stroke-width:1.5; stroke:rgb(43, 222, 221);">
+        </rect>
+    
+      <g fill="none" stroke="black" stroke-width="1" >
+        <line class="point" x1="300" x2="300" y1="0" y2="600" stroke-dasharray="2,5" d="M5 20 l215 0"/>
+      </g>
+    </svg>
+            </div>
+            <div id="controls" class = nav>
+    <h2 class="navUText" >Controls:</h2>
+    <table float: right>
+    
+        <tr><td class="navUText">Move bar upwards</td><td><div id="ArrowUp" class="arrowkey">&#8657;</div></td></tr>
+        <tr><td class="navUText">Move bar downwards</td><td><div id="ArrowDown" class="arrowkey">&#8659;</div></td></tr>
+    
+    </table>
+    </div>
+        </body>
+    </html>
